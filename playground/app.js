@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
+import Inferno, {render} from "inferno";
+import Component from 'inferno-component';
 import Codemirror from "react-codemirror";
 import "codemirror/mode/javascript/javascript";
 
