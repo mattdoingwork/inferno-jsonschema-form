@@ -1,4 +1,4 @@
-import React from "react";
+import Inferno from "inferno";
 import "setimmediate";
 
 const widgetMap = {

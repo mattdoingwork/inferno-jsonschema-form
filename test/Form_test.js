@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import sinon from "sinon";
-import React from "react";
+import Inferno from "inferno";
 import { renderIntoDocument, Simulate } from "react-addons-test-utils";
 import { findDOMNode } from "react-dom";
 

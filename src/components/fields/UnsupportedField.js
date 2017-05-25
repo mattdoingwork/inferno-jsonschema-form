@@ -1,4 +1,4 @@
-import React from "react";
+import Inferno from "inferno";
 
 export default function UnsupportedField({ schema }) {
   // XXX render json as string so dev can inspect faulty subschema

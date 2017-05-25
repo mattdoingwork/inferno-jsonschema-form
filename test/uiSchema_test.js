@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import React from "react";
+import Inferno from "inferno";
 import { Simulate } from "react-addons-test-utils";
 
 import { createFormComponent, createSandbox } from "./test_utils";

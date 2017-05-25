@@ -1,5 +1,5 @@
 import sinon from "sinon";
-import React from "react";
+import Inferno from "inferno";
 import { scryRenderedComponentsWithType } from "react-addons-test-utils";
 import { getDefaultRegistry } from "../src/utils";
 import SchemaField from "../src/components/fields/SchemaField";

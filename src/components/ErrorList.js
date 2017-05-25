@@ -1,4 +1,4 @@
-import React from "react";
+import Inferno from "inferno";
 
 export default function ErrorList(props) {
   const { errors } = props;

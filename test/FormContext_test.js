@@ -1,4 +1,4 @@
-import React from "react";
+import Inferno from "inferno";
 import { expect } from "chai";
 
 import { createFormComponent, createSandbox } from "./test_utils";

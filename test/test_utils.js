@@ -1,6 +1,6 @@
 /* Utils for tests. */
 
-import React from "react";
+import Inferno from "inferno";
 import sinon from "sinon";
 import { renderIntoDocument } from "react-addons-test-utils";
 import { findDOMNode, render } from "react-dom";

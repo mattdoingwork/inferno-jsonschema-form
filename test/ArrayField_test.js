@@ -1,4 +1,4 @@
-import React from "react";
+import Inferno from "inferno";
 
 import { expect } from "chai";
 import { Simulate } from "react-addons-test-utils";

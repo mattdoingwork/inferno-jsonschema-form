@@ -1,4 +1,4 @@
-import React from "react";
+import Inferno from "inferno";
 import { expect } from "chai";
 
 import DescriptionField from "../src/components/fields/DescriptionField";
