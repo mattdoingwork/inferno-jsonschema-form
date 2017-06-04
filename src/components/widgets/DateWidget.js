@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 import BaseInput from "./BaseInput";
 
@@ -12,12 +11,6 @@ function DateWidget(props) {
       onChange={value => onChange(value || undefined)}
     />
   );
-}
-
-if (process.env.NODE_ENV !== "production") {
-  DateWidget.propTypes = {
-    value: PropTypes.string,
-  };
 }
 
 export default DateWidget;

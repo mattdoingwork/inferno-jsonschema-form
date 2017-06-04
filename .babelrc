@@ -1,20 +1,4 @@
 {
-  "presets": ["react", "es2015"],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties"
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        ["react-transform", {
-          "transforms": [{
-            "transform": "react-transform-hmr",
-            "imports": ["react"],
-            "locals": ["module"]
-          }]
-        }]
-      ]
-    }
-  }
+  "presets": ["es2015"],
+  "plugins": ["inferno", "transform-object-rest-spread", "transform-class-properties"]
 }

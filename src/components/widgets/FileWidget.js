@@ -1,6 +1,5 @@
 import Inferno from "inferno";
 import Component from "inferno-component";
-import PropTypes from "prop-types";
 
 import { dataURItoBlob, shouldRender, setState } from "../../utils";
 
@@ -119,16 +118,5 @@ class FileWidget extends Component {
 FileWidget.defaultProps = {
   autofocus: false,
 };
-
-if (process.env.NODE_ENV !== "production") {
-  FileWidget.propTypes = {
-    multiple: PropTypes.bool,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-    autofocus: PropTypes.bool,
-  };
-}
 
 export default FileWidget;

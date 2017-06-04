@@ -1,5 +1,6 @@
 var webpack = require("webpack");
 
+process.env.NODE_ENV = 'production';
 module.exports = {
   cache: true,
   context: __dirname + "/src",

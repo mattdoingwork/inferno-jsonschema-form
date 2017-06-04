@@ -1,6 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
-
 import {
   isMultiSelect,
   retrieveSchema,
@@ -101,27 +99,6 @@ function DefaultTemplate(props) {
       {help}
     </div>
   );
-}
-
-if (process.env.NODE_ENV !== "production") {
-  DefaultTemplate.propTypes = {
-    id: PropTypes.string,
-    classNames: PropTypes.string,
-    label: PropTypes.string,
-    children: PropTypes.node.isRequired,
-    errors: PropTypes.element,
-    rawErrors: PropTypes.arrayOf(PropTypes.string),
-    help: PropTypes.element,
-    rawHelp: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    description: PropTypes.element,
-    rawDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    hidden: PropTypes.bool,
-    required: PropTypes.bool,
-    readonly: PropTypes.bool,
-    displayLabel: PropTypes.bool,
-    fields: PropTypes.object,
-    formContext: PropTypes.object,
-  };
 }
 
 DefaultTemplate.defaultProps = {
@@ -258,25 +235,5 @@ SchemaField.defaultProps = {
   readonly: false,
   autofocus: false,
 };
-
-if (process.env.NODE_ENV !== "production") {
-  SchemaField.propTypes = {
-    schema: PropTypes.object.isRequired,
-    uiSchema: PropTypes.object,
-    idSchema: PropTypes.object,
-    formData: PropTypes.any,
-    errorSchema: PropTypes.object,
-    registry: PropTypes.shape({
-      widgets: PropTypes.objectOf(
-        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-      ).isRequired,
-      fields: PropTypes.objectOf(PropTypes.func).isRequired,
-      definitions: PropTypes.object.isRequired,
-      ArrayFieldTemplate: PropTypes.func,
-      FieldTemplate: PropTypes.func,
-      formContext: PropTypes.object.isRequired,
-    }),
-  };
-}
 
 export default SchemaField;

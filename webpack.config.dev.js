@@ -1,6 +1,8 @@
 var path = require("path");
 var webpack = require("webpack");
 
+process.env.NODE_ENV = 'development';
+
 module.exports = {
   devtool: "eval",
   entry: [
@@ -19,13 +21,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        loader: "babel",
+        test: /\.js$/,
+        loader: "babel-loader",
         include: [
           path.join(__dirname, "src"),
           path.join(__dirname, "playground"),
           path.join(__dirname, "node_modules", "codemirror", "mode", "javascript"),
-        ]
+        ],
       },
       {
         test: /\.css$/,

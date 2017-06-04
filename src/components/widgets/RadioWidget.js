@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 function RadioWidget(props) {
   const {
@@ -55,20 +54,4 @@ RadioWidget.defaultProps = {
   autofocus: false,
 };
 
-if (process.env.NODE_ENV !== "production") {
-  RadioWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    options: PropTypes.shape({
-      enumOptions: PropTypes.array,
-      inline: PropTypes.bool,
-    }).isRequired,
-    value: PropTypes.any,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-}
 export default RadioWidget;

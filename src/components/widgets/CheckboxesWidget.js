@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 function selectValue(value, selected, all) {
   const at = all.indexOf(value);
@@ -61,23 +60,5 @@ CheckboxesWidget.defaultProps = {
     inline: false,
   },
 };
-
-if (process.env.NODE_ENV !== "production") {
-  CheckboxesWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    options: PropTypes.shape({
-      enumOptions: PropTypes.array,
-      inline: PropTypes.bool,
-    }).isRequired,
-    value: PropTypes.any,
-    required: PropTypes.bool,
-    readonly: PropTypes.bool,
-    disabled: PropTypes.bool,
-    multiple: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-}
 
 export default CheckboxesWidget;

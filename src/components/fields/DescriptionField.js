@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 function DescriptionField(props) {
   const { id, description } = props;
@@ -12,13 +11,6 @@ function DescriptionField(props) {
   } else {
     return <div id={id} className="field-description">{description}</div>;
   }
-}
-
-if (process.env.NODE_ENV !== "production") {
-  DescriptionField.propTypes = {
-    id: PropTypes.string,
-    description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  };
 }
 
 export default DescriptionField;

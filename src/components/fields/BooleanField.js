@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 import {
   getWidget,
@@ -46,28 +45,6 @@ function BooleanField(props) {
       autofocus={autofocus}
     />
   );
-}
-
-if (process.env.NODE_ENV !== "production") {
-  BooleanField.propTypes = {
-    schema: PropTypes.object.isRequired,
-    uiSchema: PropTypes.object,
-    idSchema: PropTypes.object,
-    onChange: PropTypes.func.isRequired,
-    formData: PropTypes.bool,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    registry: PropTypes.shape({
-      widgets: PropTypes.objectOf(
-        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-      ).isRequired,
-      fields: PropTypes.objectOf(PropTypes.func).isRequired,
-      definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
-    }),
-  };
 }
 
 BooleanField.defaultProps = {

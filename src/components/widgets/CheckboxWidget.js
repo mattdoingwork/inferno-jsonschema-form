@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 import DescriptionField from "../fields/DescriptionField.js";
 
 function CheckboxWidget(props) {
@@ -37,18 +36,5 @@ function CheckboxWidget(props) {
 CheckboxWidget.defaultProps = {
   autofocus: false,
 };
-
-if (process.env.NODE_ENV !== "production") {
-  CheckboxWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    value: PropTypes.bool,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-}
 
 export default CheckboxWidget;

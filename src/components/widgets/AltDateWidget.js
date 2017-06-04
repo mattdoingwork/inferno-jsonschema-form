@@ -1,6 +1,5 @@
 import Inferno from "inferno";
 import Component from "inferno-component";
-import PropTypes from "prop-types";
 
 import { shouldRender, parseDateString, toDateString, pad } from "../../utils";
 
@@ -152,21 +151,6 @@ class AltDateWidget extends Component {
       </ul>
     );
   }
-}
-
-if (process.env.NODE_ENV !== "production") {
-  AltDateWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    time: PropTypes.bool,
-  };
 }
 
 export default AltDateWidget;

@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 import BaseInput from "./BaseInput";
 
@@ -23,12 +22,6 @@ function DateTimeWidget(props) {
       onChange={value => onChange(toJSONDate(value))}
     />
   );
-}
-
-if (process.env.NODE_ENV !== "production") {
-  DateTimeWidget.propTypes = {
-    value: PropTypes.string,
-  };
 }
 
 export default DateTimeWidget;

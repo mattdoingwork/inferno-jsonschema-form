@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 import { asNumber } from "../../utils";
 
@@ -83,23 +82,5 @@ function SelectWidget(props) {
 SelectWidget.defaultProps = {
   autofocus: false,
 };
-
-if (process.env.NODE_ENV !== "production") {
-  SelectWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    options: PropTypes.shape({
-      enumOptions: PropTypes.array,
-    }).isRequired,
-    value: PropTypes.any,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    multiple: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-  };
-}
 
 export default SelectWidget;

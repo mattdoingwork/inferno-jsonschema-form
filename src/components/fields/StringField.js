@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 import {
   getWidget,
@@ -50,30 +49,6 @@ function StringField(props) {
       placeholder={placeholder}
     />
   );
-}
-
-if (process.env.NODE_ENV !== "production") {
-  StringField.propTypes = {
-    schema: PropTypes.object.isRequired,
-    uiSchema: PropTypes.object.isRequired,
-    idSchema: PropTypes.object,
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func,
-    formData: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    registry: PropTypes.shape({
-      widgets: PropTypes.objectOf(
-        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-      ).isRequired,
-      fields: PropTypes.objectOf(PropTypes.func).isRequired,
-      definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
-    }),
-    formContext: PropTypes.object.isRequired,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
-  };
 }
 
 StringField.defaultProps = {

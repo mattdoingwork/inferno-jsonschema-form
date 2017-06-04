@@ -1,5 +1,4 @@
 import Inferno from "inferno";
-import PropTypes from "prop-types";
 
 import { rangeSpec } from "../../utils";
 import BaseInput from "./BaseInput";
@@ -12,12 +11,6 @@ function RangeWidget(props) {
       <span className="range-view">{value}</span>
     </div>
   );
-}
-
-if (process.env.NODE_ENV !== "production") {
-  RangeWidget.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  };
 }
 
 export default RangeWidget;

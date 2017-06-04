@@ -1,6 +1,5 @@
 import Inferno from "inferno";
 import Component from "inferno-component";
-import PropTypes from "prop-types";
 
 import {
   orderProperties,
@@ -102,28 +101,6 @@ class ObjectField extends Component {
       </fieldset>
     );
   }
-}
-
-if (process.env.NODE_ENV !== "production") {
-  ObjectField.propTypes = {
-    schema: PropTypes.object.isRequired,
-    uiSchema: PropTypes.object,
-    errorSchema: PropTypes.object,
-    idSchema: PropTypes.object,
-    onChange: PropTypes.func.isRequired,
-    formData: PropTypes.object,
-    required: PropTypes.bool,
-    disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    registry: PropTypes.shape({
-      widgets: PropTypes.objectOf(
-        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-      ).isRequired,
-      fields: PropTypes.objectOf(PropTypes.func).isRequired,
-      definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
-    }),
-  };
 }
 
 export default ObjectField;
