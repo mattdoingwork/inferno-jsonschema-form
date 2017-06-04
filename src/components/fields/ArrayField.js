@@ -16,7 +16,8 @@ import {
   getDefaultRegistry,
 } from "../../utils";
 
-function ArrayFieldTitle({ TitleField, idSchema, title, required }) {
+
+const ArrayFieldTitle = ({ TitleField, idSchema, title, required }) => {
   if (!title) {
     // See #312: Ensure compatibility with old versions of React.
     return <div />;
