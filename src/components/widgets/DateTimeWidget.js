@@ -13,13 +13,13 @@ function toJSONDate(dateString) {
 }
 
 function DateTimeWidget(props) {
-  const { value, onChange } = props;
+  const { value, onInput } = props;
   return (
     <BaseInput
       type="datetime-local"
       {...props}
       value={fromJSONDate(value)}
-      onChange={value => onChange(toJSONDate(value))}
+      onInput={value => onInput(toJSONDate(value))}
     />
   );
 }

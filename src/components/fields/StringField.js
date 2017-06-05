@@ -18,7 +18,7 @@ function StringField(props) {
     disabled,
     readonly,
     autofocus,
-    onChange,
+    onInput,
     onBlur,
     registry = getDefaultRegistry(),
   } = props;
@@ -38,7 +38,7 @@ function StringField(props) {
       id={idSchema && idSchema.$id}
       label={title === undefined ? name : title}
       value={formData}
-      onChange={onChange}
+      onInput={onInput}
       onBlur={onBlur}
       required={required}
       disabled={disabled}

@@ -54,7 +54,7 @@ describe("uiSchema", () => {
               value={props.value}
               defaultValue={props.defaultValue}
               required={props.required}
-              onChange={event => props.onChange(event.target.value)}
+              onInput={event => props.onInput(event.target.value)}
             />
           );
         },
@@ -233,7 +233,7 @@ describe("uiSchema", () => {
             value={props.value}
             defaultValue={props.defaultValue}
             required={props.required}
-            onChange={event => props.onChange(event.target.value)}
+            onInput={event => props.onInput(event.target.value)}
           />
         );
       };

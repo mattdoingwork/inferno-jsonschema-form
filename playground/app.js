@@ -131,10 +131,10 @@ class GeoPosition extends Component {
     this.state = { ...props.formData };
   }
 
-  onChange(name) {
+  onInput(name) {
     return event => {
       this.setState({ [name]: parseFloat(event.target.value) });
-      setImmediate(() => this.props.onChange(this.state));
+      setImmediate(() => this.props.onInput(this.state));
     };
   }
 
@@ -156,7 +156,7 @@ class GeoPosition extends Component {
               type="number"
               value={lat}
               step="0.00001"
-              onChange={this.onChange("lat")}
+              onInput={this.onInput("lat")}
             />
           </div>
           <div className="col-sm-6">
@@ -166,7 +166,7 @@ class GeoPosition extends Component {
               type="number"
               value={lon}
               step="0.00001"
-              onChange={this.onChange("lon")}
+              onInput={this.onInput("lon")}
             />
           </div>
         </div>
@@ -193,7 +193,7 @@ class Editor extends Component {
     this.setState({ valid: true, code });
     setImmediate(() => {
       try {
-        this.props.onChange(fromJson(this.state.code));
+        this.props.onInput(fromJson(this.state.code));
       } catch (err) {
         this.setState({ valid: false, code });
       }
@@ -212,7 +212,7 @@ class Editor extends Component {
         </div>
         <Codemirror
           value={this.state.code}
-          onChange={this.onCodeChange}
+          onInput={this.onCodeChange}
           options={Object.assign({}, cmOptions, { theme })}
         />
       </div>
@@ -267,7 +267,7 @@ function ThemeSelector({ theme, select }) {
     <Form
       schema={themeSchema}
       formData={theme}
-      onChange={({ formData }) => select(formData, themes[formData])}>
+      onInput={({ formData }) => select(formData, themes[formData])}>
       <div />
     </Form>
   );
@@ -408,7 +408,7 @@ class App extends Component {
               <Form
                 schema={liveValidateSchema}
                 formData={liveValidate}
-                onChange={this.setLiveValidate}>
+                onInput={this.setLiveValidate}>
                 <div />
               </Form>
             </div>
@@ -422,7 +422,7 @@ class App extends Component {
             title="JSONSchema"
             theme={editor}
             code={toJson(schema)}
-            onChange={this.onSchemaEdited}
+            onInput={this.onSchemaEdited}
           />
           <div className="row">
             <div className="col-sm-6">
@@ -430,7 +430,7 @@ class App extends Component {
                 title="UISchema"
                 theme={editor}
                 code={toJson(uiSchema)}
-                onChange={this.onUISchemaEdited}
+                onInput={this.onUISchemaEdited}
               />
             </div>
             <div className="col-sm-6">
@@ -438,7 +438,7 @@ class App extends Component {
                 title="formData"
                 theme={editor}
                 code={toJson(formData)}
-                onChange={this.onFormDataEdited}
+                onInput={this.onFormDataEdited}
               />
             </div>
           </div>
@@ -451,7 +451,8 @@ class App extends Component {
               schema={schema}
               uiSchema={uiSchema}
               formData={formData}
-              onChange={this.onFormDataChange}
+              onInput={this.onFormDataChange}
+              patch={(key, value) => {console.log(key, value, 'patched');}}
               onSubmit={({ formData }) =>
                 console.log("submitted formData", formData)}
               fields={{ geo: GeoPosition }}

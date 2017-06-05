@@ -209,7 +209,7 @@ class ArrayField extends Component {
     if (isFixedItems(schema) && allowAdditionalItems(schema)) {
       itemSchema = schema.additionalItems;
     }
-    this.props.onChange(
+    this.props.onInput(
       [...formData, getDefaultFormState(itemSchema, undefined, definitions)],
       { validate: false }
     );
@@ -220,9 +220,9 @@ class ArrayField extends Component {
       if (event) {
         event.preventDefault();
       }
-      const { formData, onChange } = this.props;
+      const { formData, onInput } = this.props;
       // refs #195: revalidate to ensure properly reindexing errors
-      onChange(formData.filter((_, i) => i !== index), { validate: true });
+      onInput(formData.filter((_, i) => i !== index), { validate: true });
     };
   };
 
@@ -232,8 +232,8 @@ class ArrayField extends Component {
         event.preventDefault();
         event.target.blur();
       }
-      const { formData, onChange } = this.props;
-      onChange(
+      const { formData, onInput } = this.props;
+      onInput(
         formData.map((item, i) => {
           if (i === newIndex) {
             return formData[index];
@@ -248,21 +248,21 @@ class ArrayField extends Component {
     };
   };
 
-  onChangeForIndex = index => {
+  onInputForIndex = index => {
     return value => {
-      const { formData, onChange } = this.props;
+      const { formData, onInput } = this.props;
       const newFormData = formData.map((item, i) => {
         // We need to treat undefined items as nulls to have validation.
         // See https://github.com/tdegrunt/jsonschema/issues/206
         const jsonValue = typeof value === "undefined" ? null : value;
         return index === i ? jsonValue : item;
       });
-      onChange(newFormData, { validate: false });
+      onInput(newFormData, { validate: false });
     };
   };
 
   onSelectChange = value => {
-    this.props.onChange(value, { validate: false });
+    this.props.onInput(value, { validate: false });
   };
 
   render() {
@@ -363,7 +363,7 @@ class ArrayField extends Component {
       <Widget
         id={idSchema && idSchema.$id}
         multiple
-        onChange={this.onSelectChange}
+        onInput={this.onSelectChange}
         onBlur={onBlur}
         options={options}
         schema={schema}
@@ -398,7 +398,7 @@ class ArrayField extends Component {
         options={options}
         id={idSchema && idSchema.$id}
         multiple
-        onChange={this.onSelectChange}
+        onInput={this.onSelectChange}
         onBlur={onBlur}
         schema={schema}
         title={title}
@@ -532,7 +532,7 @@ class ArrayField extends Component {
           errorSchema={itemErrorSchema}
           idSchema={itemIdSchema}
           required={this.isItemRequired(itemSchema)}
-          onChange={this.onChangeForIndex(index)}
+          onInput={this.onInputForIndex(index)}
           onBlur={onBlur}
           registry={this.props.registry}
           disabled={this.props.disabled}

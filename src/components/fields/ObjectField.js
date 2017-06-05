@@ -28,7 +28,7 @@ class ObjectField extends Component {
   onPropertyChange = name => {
     return (value, options) => {
       const newFormData = { ...this.props.formData, [name]: value };
-      this.props.onChange(newFormData, options);
+      this.props.onInput(newFormData, options);
     };
   };
 
@@ -90,7 +90,7 @@ class ObjectField extends Component {
               errorSchema={errorSchema[name]}
               idSchema={idSchema[name]}
               formData={formData[name]}
-              onChange={this.onPropertyChange(name)}
+              onInput={this.onPropertyChange(name)}
               onBlur={onBlur}
               registry={registry}
               disabled={disabled}

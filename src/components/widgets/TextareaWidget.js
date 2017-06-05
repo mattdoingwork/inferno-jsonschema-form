@@ -10,11 +10,11 @@ function TextareaWidget(props) {
     disabled,
     readonly,
     autofocus,
-    onChange,
+    onInput,
     onBlur,
   } = props;
-  const _onChange = ({ target: { value } }) => {
-    return onChange(value === "" ? options.emptyValue : value);
+  const _onInput = ({ target: { value } }) => {
+    return onInput(value === "" ? options.emptyValue : value);
   };
   return (
     <textarea
@@ -28,7 +28,7 @@ function TextareaWidget(props) {
       autoFocus={autofocus}
       rows={options.rows}
       onBlur={onBlur && (event => onBlur(id, event.target.value))}
-      onChange={_onChange}
+      onInput={_onInput}
     />
   );
 }

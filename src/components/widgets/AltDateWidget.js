@@ -41,7 +41,7 @@ function DateElement(props) {
       disabled={disabled}
       readonly={readonly}
       autofocus={autofocus}
-      onChange={value => select(type, value)}
+      onInput={value => select(type, value)}
       onBlur={onBlur}
     />
   );
@@ -68,13 +68,13 @@ class AltDateWidget extends Component {
     return shouldRender(this, nextProps, nextState);
   }
 
-  onChange = (property, value) => {
+  onInput = (property, value) => {
     this.setState(
       { [property]: typeof value === "undefined" ? -1 : value },
       () => {
         // Only propagate to parent state if we have a complete date{time}
         if (readyForChange(this.state)) {
-          this.props.onChange(toDateString(this.state, this.props.time));
+          this.props.onInput(toDateString(this.state, this.props.time));
         }
       }
     );
@@ -82,21 +82,21 @@ class AltDateWidget extends Component {
 
   setNow = event => {
     event.preventDefault();
-    const { time, disabled, readonly, onChange } = this.props;
+    const { time, disabled, readonly, onInput } = this.props;
     if (disabled || readonly) {
       return;
     }
     const nowDateObj = parseDateString(new Date().toJSON(), time);
-    this.setState(nowDateObj, () => onChange(toDateString(this.state, time)));
+    this.setState(nowDateObj, () => onInput(toDateString(this.state, time)));
   };
 
   clear = event => {
     event.preventDefault();
-    const { time, disabled, readonly, onChange } = this.props;
+    const { time, disabled, readonly, onInput } = this.props;
     if (disabled || readonly) {
       return;
     }
-    this.setState(parseDateString("", time), () => onChange(undefined));
+    this.setState(parseDateString("", time), () => onInput(undefined));
   };
 
   get dateElementProps() {
@@ -125,7 +125,7 @@ class AltDateWidget extends Component {
           <li key={i}>
             <DateElement
               rootId={id}
-              select={this.onChange}
+              select={this.onInput}
               {...elemProps}
               disabled={disabled}
               readonly={readonly}

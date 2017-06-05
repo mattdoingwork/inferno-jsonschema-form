@@ -562,14 +562,14 @@ describe("Form", () => {
       const formData = {
         foo: "",
       };
-      const onChange = sandbox.spy();
-      const { node } = createFormComponent({ schema, formData, onChange });
+      const onInput = sandbox.spy();
+      const { node } = createFormComponent({ schema, formData, onInput });
 
       Simulate.change(node.querySelector("[type=text]"), {
         target: { value: "new" },
       });
 
-      sinon.assert.calledWithMatch(onChange, {
+      sinon.assert.calledWithMatch(onInput, {
         formData: {
           foo: "new",
         },
@@ -796,7 +796,7 @@ describe("Form", () => {
         });
       });
 
-      describe("Disable validation onChange event", () => {
+      describe("Disable validation onInput event", () => {
         it("should not update errorSchema when the formData changes", () => {
           const { comp, node } = createFormComponent({
             schema,

@@ -116,12 +116,12 @@ module.exports = {
       "ui:readonly": true,
     },
     widgetOptions: {
-      "ui:widget": ({ value, onChange, options }) => {
+      "ui:widget": ({ value, onInput, options }) => {
         const { backgroundColor } = options;
         return (
           <input
             className="form-control"
-            onChange={event => onChange(event.target.value)}
+            onInput={event => onInput(event.target.value)}
             style={{ backgroundColor }}
             value={value}
           />
@@ -132,14 +132,14 @@ module.exports = {
       },
     },
     selectWidgetOptions: {
-      "ui:widget": ({ value, onChange, options }) => {
+      "ui:widget": ({ value, onInput, options }) => {
         const { enumOptions, backgroundColor } = options;
         return (
           <select
             className="form-control"
             style={{ backgroundColor }}
             value={value}
-            onChange={event => onChange(event.target.value)}>
+            onInput={event => onInput(event.target.value)}>
             {enumOptions.map(({ label, value }, i) => {
               return <option key={i} value={value}>{label}</option>;
             })}

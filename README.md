@@ -145,7 +145,7 @@ const log = (type) => console.log.bind(console, type);
 
 render((
   <Form schema={schema}
-        onChange={log("changed")}
+        onInput={log("changed")}
         onSubmit={log("submitted")}
         onError={log("errors")} />
 ), document.getElementById("app"));
@@ -173,7 +173,7 @@ render((
 
 NOTE: If your form have a single field, pass a single value to `formData`. ex: `formData='Charlie'`
 
-WARNING: If you have situations where your parent component can re-render, make sure you listen to the `onChange` event and update the data you pass to the `formData` attribute.
+WARNING: If you have situations where your parent component can re-render, make sure you listen to the `onInput` event and update the data you pass to the `formData` attribute.
 
 ### Form event handlers
 
@@ -205,7 +205,7 @@ render((
 
 #### Form data changes
 
-If you plan on being notified everytime the form data are updated, you can pass an `onChange` handler, which will receive the same args as `onSubmit` any time a value is updated in the form.
+If you plan on being notified everytime the form data are updated, you can pass an `onInput` handler, which will receive the same args as `onSubmit` any time a value is updated in the form.
 
 #### Form field blur events
 
@@ -899,7 +899,7 @@ const uiSchema = {
         className="custom"
         value={props.value}
         required={props.required}
-        onChange={(event) => props.onChange(event.target.value)} />
+        onInput={(event) => props.onInput(event.target.value)} />
     );
   }
 };
@@ -918,7 +918,7 @@ The following props are passed to custom widget components:
 - `required`: The required status of this field;
 - `disabled`: `true` if the widget is disabled;
 - `readonly`: `true` if the widget is read-only;
-- `onChange`: The value change event handler; call it with the new value everytime it changes;
+- `onInput`: The value change event handler; call it with the new value everytime it changes;
 - `onBlur`: The input blur event handler; call it with the the widget id and value;
 - `options`: A map of options passed as a prop to the component (see [Custom widget options](#custom-widget-options)).
 - `formContext`: The `formContext` object that you passed to Form.
@@ -936,7 +936,7 @@ const MyCustomWidget = (props) => {
       className="custom"
       value={props.value}
       required={props.required}
-      onChange={(event) => props.onChange(event.target.value)} />
+      onInput={(event) => props.onInput(event.target.value)} />
   );
 };
 
@@ -1022,11 +1022,11 @@ class GeoPosition extends React.Component {
     this.state = {...props.formData};
   }
 
-  onChange(name) {
+  onInput(name) {
     return (event) => {
       this.setState({
         [name]: parseFloat(event.target.value)
-      }, () => this.props.onChange(this.state));
+      }, () => this.props.onInput(this.state));
     };
   }
 
@@ -1034,8 +1034,8 @@ class GeoPosition extends React.Component {
     const {lat, lon} = this.state;
     return (
       <div>
-        <input type="number" value={lat} onChange={this.onChange("lat")} />
-        <input type="number" value={lon} onChange={this.onChange("lon")} />
+        <input type="number" value={lat} onInput={this.onInput("lat")} />
+        <input type="number" value={lon} onInput={this.onInput("lon")} />
       </div>
     );
   }
@@ -1144,7 +1144,7 @@ You can override any default field and widget, including the internal widgets li
 
 const CustomCheckbox = function(props) {
   return (
-    <button id="custom" className={props.value ? "checked" : "unchecked"} onClick={() => props.onChange(!props.value)}>
+    <button id="custom" className={props.value ? "checked" : "unchecked"} onClick={() => props.onInput(!props.value)}>
     	{props.value}
     </button>
   );

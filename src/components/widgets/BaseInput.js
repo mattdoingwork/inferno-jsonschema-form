@@ -15,8 +15,8 @@ function BaseInput(props) {
   } = props;
 
   inputProps.type = options.inputType || inputProps.type || "text";
-  const _onChange = ({ target: { value } }) => {
-    return props.onChange(value === "" ? options.emptyValue : value);
+  const onInput = ({ target: { value } }) => {
+    return props.onInput(value === "" ? options.emptyValue : value);
   };
   return (
     <input
@@ -26,7 +26,7 @@ function BaseInput(props) {
       autoFocus={autofocus}
       value={value == null ? "" : value}
       {...inputProps}
-      onChange={_onChange}
+      onInput={onInput}
       onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
     />
   );

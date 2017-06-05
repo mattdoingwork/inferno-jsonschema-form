@@ -19,7 +19,7 @@ function BooleanField(props) {
     disabled,
     readonly,
     autofocus,
-    onChange,
+    onInput,
   } = props;
   const { title } = schema;
   const { widgets, formContext } = registry;
@@ -34,7 +34,7 @@ function BooleanField(props) {
       options={{ ...options, enumOptions }}
       schema={schema}
       id={idSchema && idSchema.$id}
-      onChange={onChange}
+      onInput={onInput}
       label={title === undefined ? name : title}
       value={formData}
       required={required}

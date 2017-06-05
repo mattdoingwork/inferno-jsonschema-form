@@ -11,7 +11,7 @@ function CheckboxWidget(props) {
     readonly,
     label,
     autofocus,
-    onChange,
+    onInput,
   } = props;
   return (
     <div className={`checkbox ${disabled || readonly ? "disabled" : ""}`}>
@@ -25,7 +25,7 @@ function CheckboxWidget(props) {
           required={required}
           disabled={disabled || readonly}
           autoFocus={autofocus}
-          onChange={event => onChange(event.target.checked)}
+          onInput={event => onInput(event.target.checked)}
         />
         <span>{label}</span>
       </label>

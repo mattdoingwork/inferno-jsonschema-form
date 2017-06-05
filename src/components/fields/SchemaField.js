@@ -44,6 +44,15 @@ function Label(props) {
   );
 }
 
+const PatchControls = (props)  => {
+  return (
+    <div class="patch-controls">
+      <span onClick={props.patch}>P</span>
+      <span>R</span>
+    </div>
+  );
+}
+
 function Help(props) {
   const { help } = props;
   if (!help) {
@@ -85,6 +94,7 @@ function DefaultTemplate(props) {
     hidden,
     required,
     displayLabel,
+    patch
   } = props;
   if (hidden) {
     return children;
@@ -94,6 +104,7 @@ function DefaultTemplate(props) {
     <div className={classNames}>
       {displayLabel && <Label label={label} required={required} id={id} />}
       {displayLabel && description ? description : null}
+      {patch && <PatchControls patch={patch} />}
       {children}
       {errors}
       {help}

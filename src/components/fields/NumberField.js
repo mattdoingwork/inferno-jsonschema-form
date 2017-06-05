@@ -6,7 +6,7 @@ function NumberField(props) {
   return (
     <StringField
       {...props}
-      onChange={value => props.onChange(asNumber(value))}
+      onInput={value => props.onInput(asNumber(value))}
     />
   );
 }

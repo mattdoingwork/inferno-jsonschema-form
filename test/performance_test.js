@@ -103,7 +103,7 @@ describe("Rendering performance optimizations", () => {
   });
 
   describe("SchemaField", () => {
-    const onChange = () => {};
+    const onInput = () => {};
     const onBlur = () => {};
     const registry = getDefaultRegistry();
     const uiSchema = {};
@@ -120,7 +120,7 @@ describe("Rendering performance optimizations", () => {
         registry,
         schema,
         uiSchema,
-        onChange,
+        onInput,
         idSchema,
         onBlur,
       };
@@ -138,7 +138,7 @@ describe("Rendering performance optimizations", () => {
         registry,
         schema,
         formData: { foo: "blah" },
-        onChange,
+        onInput,
         idSchema,
         onBlur,
       };

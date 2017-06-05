@@ -86,7 +86,7 @@ class Form extends Component {
     return null;
   }
 
-  onChange = (formData, options = { validate: false }) => {
+  onInput = (formData, options = { validate: false }) => {
     const mustValidate =
       !this.props.noValidate && (this.props.liveValidate || options.validate);
     let state = { status: "editing", formData };
@@ -95,8 +95,8 @@ class Form extends Component {
       state = { ...state, errors, errorSchema };
     }
     setState(this, state, () => {
-      if (this.props.onChange) {
-        this.props.onChange(this.state);
+      if (this.props.onInput) {
+        this.props.onInput(this.state);
       }
     });
   };
@@ -185,7 +185,7 @@ class Form extends Component {
           errorSchema={errorSchema}
           idSchema={idSchema}
           formData={formData}
-          onChange={this.onChange}
+          onInput={this.onInput}
           onBlur={this.onBlur}
           registry={registry}
           safeRenderCompletion={safeRenderCompletion}

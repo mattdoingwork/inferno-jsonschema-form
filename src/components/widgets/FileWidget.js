@@ -75,8 +75,8 @@ class FileWidget extends Component {
     return shouldRender(this, nextProps, nextState);
   }
 
-  onChange = event => {
-    const { multiple, onChange } = this.props;
+  onInput = event => {
+    const { multiple, onInput } = this.props;
     processFiles(event.target.files).then(filesInfo => {
       const state = {
         values: filesInfo.map(fileInfo => fileInfo.dataURL),
@@ -84,9 +84,9 @@ class FileWidget extends Component {
       };
       setState(this, state, () => {
         if (multiple) {
-          onChange(state.values);
+          onInput(state.values);
         } else {
-          onChange(state.values[0]);
+          onInput(state.values[0]);
         }
       });
     });
@@ -103,7 +103,7 @@ class FileWidget extends Component {
             id={id}
             type="file"
             disabled={readonly || disabled}
-            onChange={this.onChange}
+            onInput={this.onInput}
             defaultValue=""
             autoFocus={autofocus}
             multiple={multiple}

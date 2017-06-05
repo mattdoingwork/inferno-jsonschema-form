@@ -3,12 +3,12 @@ import Inferno from "inferno";
 import BaseInput from "./BaseInput";
 
 function DateWidget(props) {
-  const { onChange } = props;
+  const { onInput } = props;
   return (
     <BaseInput
       type="date"
       {...props}
-      onChange={value => onChange(value || undefined)}
+      onInput={value => onInput(value || undefined)}
     />
   );
 }
