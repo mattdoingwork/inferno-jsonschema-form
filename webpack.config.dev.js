@@ -1,5 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 
 process.env.NODE_ENV = 'development';
 
@@ -37,6 +39,10 @@ module.exports = {
           path.join(__dirname, "playground"),
           path.join(__dirname, "node_modules"),
         ],
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
       }
     ]
   },
