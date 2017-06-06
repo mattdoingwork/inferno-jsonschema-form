@@ -1,11 +1,11 @@
-react-jsonschema-form
+inferno-jsonschema-form
 =====================
 
-[![Build Status](https://travis-ci.org/mozilla-services/react-jsonschema-form.svg)](https://travis-ci.org/mozilla-services/react-jsonschema-form)
+[![Build Status](https://travis-ci.org/mozilla-services/inferno-jsonschema-form.svg)](https://travis-ci.org/mozilla-services/inferno-jsonschema-form)
 
-A simple [React](http://facebook.github.io/react/) component capable of building HTML forms out of a [JSON schema](http://jsonschema.net/) and using [Bootstrap](http://getbootstrap.com/) semantics by default.
+A simple [React](http://facebook.github.io/inferno/) component capable of building HTML forms out of a [JSON schema](http://jsonschema.net/) and using [Bootstrap](http://getbootstrap.com/) semantics by default.
 
-A [live playground](https://mozilla-services.github.io/react-jsonschema-form/) is hosted on gh-pages.
+A [live playground](https://mozilla-services.github.io/inferno-jsonschema-form/) is hosted on gh-pages.
 
 ![](http://i.imgur.com/M8ZCES5.gif)
 
@@ -92,7 +92,7 @@ A [live playground](https://mozilla-services.github.io/react-jsonschema-form/) i
 
 Requires React 15.0.0+.
 
-> Note: The `master` branch of the repository reflects ongoing development. Releases are published as [tags](https://github.com/mozilla-services/react-jsonschema-form/releases).
+> Note: The `master` branch of the repository reflects ongoing development. Releases are published as [tags](https://github.com/mozilla-services/inferno-jsonschema-form/releases).
 >
 > You should never blindly install from `master`, but rather check what the available stable releases are.
 
@@ -100,7 +100,7 @@ Requires React 15.0.0+.
 ### As a npm-based project dependency
 
 ```
-$ npm install react-jsonschema-form --save
+$ npm install inferno-jsonschema-form --save
 ```
 
 > Note: While the library renders [Bootstrap](http://getbootstrap.com/) HTML semantics, you have to build/load the Bootstrap styles on your own.
@@ -108,12 +108,12 @@ $ npm install react-jsonschema-form --save
 ### As a script served from a CDN
 
 ```html
-  <script src="https://unpkg.com/react-jsonschema-form/dist/react-jsonschema-form.js"></script>
+  <script src="https://unpkg.com/inferno-jsonschema-form/dist/inferno-jsonschema-form.js"></script>
 ```
 
-Source maps are available at [this url](https://unpkg.com/react-jsonschema-form/dist/react-jsonschema-form.js.map).
+Source maps are available at [this url](https://unpkg.com/inferno-jsonschema-form/dist/inferno-jsonschema-form.js.map).
 
-> Note: The CDN version **does not** embed *react* nor *react-dom*.
+> Note: The CDN version **does not** embed *inferno* nor *inferno-dom*.
 >
 > You'll also need to alias the default export property to use the Form component:
 
@@ -126,10 +126,10 @@ const {default: Form} = JSONSchemaForm;
 ## Usage
 
 ```jsx
-import React, { Component } from "react";
-import { render } from "react-dom";
+import React, { Component } from "inferno";
+import { render } from "inferno-dom";
 
-import Form from "react-jsonschema-form";
+import Form from "inferno-jsonschema-form";
 
 const schema = {
   title: "Todo",
@@ -192,7 +192,7 @@ render((
 
 #### Form error event handler
 
-To react to when submitted form data are invalid, pass an `onError` handler, which is passed the list of encoutered errors:
+To inferno to when submitted form data are invalid, pass an `onError` handler, which is passed the list of encoutered errors:
 
 ```js
 const onError = (errors) => console.log("I have", errors.length, "errors to fix");
@@ -448,7 +448,7 @@ const uiSchema = {
 
 #### `orderable` option
 
-Array items are orderable by default, and react-jsonschema-form renders move up/down buttons alongside them. The `uiSchema` object spec allows you to disable ordering:
+Array items are orderable by default, and inferno-jsonschema-form renders move up/down buttons alongside them. The `uiSchema` object spec allows you to disable ordering:
 
 ```jsx
 const schema = {
@@ -806,7 +806,7 @@ render((
 ), document.getElementById("app"));
 ```
 
-Please see [customArray.js](https://github.com/mozilla-services/react-jsonschema-form/blob/master/playground/samples/customArray.js) for a better example.
+Please see [customArray.js](https://github.com/mozilla-services/inferno-jsonschema-form/blob/master/playground/samples/customArray.js) for a better example.
 
 The following props are passed to each `ArrayFieldTemplate`:
 
@@ -1109,7 +1109,7 @@ You can provide your own implementation of the `SchemaField` base React componen
 To proceed so, pass a `fields` object having a `SchemaField` property to your `Form` component; here's a rather silly example wrapping the standard `SchemaField` lib component:
 
 ```jsx
-import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
+import SchemaField from "inferno-jsonschema-form/lib/components/fields/SchemaField";
 
 const CustomSchemaField = function(props) {
   return (
@@ -1336,7 +1336,7 @@ You're not necessarily forced to use Bootstrap; while it uses its semantics, it 
 
 If you're okay with using styles from the Bootstrap ecosystem though, then the good news is that you have access to many themes for it, which are compatible with our generated forms!
 
-Here are some examples from the [playground](http://mozilla-services.github.io/react-jsonschema-form/), using some of the [Bootswatch](http://bootswatch.com/) free themes:
+Here are some examples from the [playground](http://mozilla-services.github.io/inferno-jsonschema-form/), using some of the [Bootswatch](http://bootswatch.com/) free themes:
 
 ![](http://i.imgur.com/1Z5oUK3.png)
 ![](http://i.imgur.com/IMFqMwK.png)
